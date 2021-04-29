@@ -1,9 +1,9 @@
 import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
-import Signin from './components/Signin';
-import Signup from './components/Signup';
-import Products from './components/Products';
-import Detail from './components/Detail';
-import MainNav from './components/MainNav';
+import Signin from './components/Signin/Signin';
+import Signup from './components/Signup/Signup';
+import Products from './components/Products/Products';
+import Detail from './components/Detail/Detail';
+import MainNav from './components/MainNav/MainNav';
 
 import './App.css';
 
