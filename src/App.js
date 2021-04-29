@@ -5,7 +5,7 @@ import Products from './components/Products/Products';
 import Detail from './components/Detail/Detail';
 import MainNav from './components/MainNav/MainNav';
 
-import './App.css';
+//import './App.css';
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
             <Products />
           </Route>
 
-          <Route exact path="/detail/:id">
+          <Route exact path="/products/:id">
             <Detail />
           </Route>
         </Switch>
