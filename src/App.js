@@ -5,33 +5,31 @@ import Products from './components/Products/Products';
 import Detail from './components/Detail/Detail';
 import MainNav from './components/MainNav/MainNav';
 
-import './App.css';
-
 function App() {
-  return (
-    <div className="App">
-      <Router>
-        <MainNav />
-        <Switch>
-          <Route exact path="/signin">
-            <Signin />
-          </Route>
+	return (
+		<div className='App'>
+			<Router>
+				<MainNav />
+				<Switch>
+					<Route exact path='/signin'>
+						<Signin />
+					</Route>
 
-          <Route exact path="/signup">
-            <Signup />
-          </Route>
+					<Route exact path='/signup'>
+						<Signup />
+					</Route>
 
-          <Route exact path="/">
-            <Products />
-          </Route>
+					<Route exact path='/'>
+						<Products />
+					</Route>
 
-          <Route exact path="/detail/:id">
-            <Detail />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
-  );
+					<Route exact path='/detail/:id'>
+						<Detail />
+					</Route>
+				</Switch>
+			</Router>
+		</div>
+	);
 }
 
 export default App;
