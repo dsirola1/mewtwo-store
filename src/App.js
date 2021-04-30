@@ -5,7 +5,7 @@ import Products from './components/Products/Products';
 import Detail from './components/Detail/Detail';
 import MainNav from './components/MainNav/MainNav';
 
-import './App.css';
+// import './App.css';
 
 function App() {
   return (
