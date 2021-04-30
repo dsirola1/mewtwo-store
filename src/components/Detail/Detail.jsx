@@ -1,5 +1,5 @@
 import React from 'react';
-import {useParams} from 'react-router-dom';
+import {useParams, Link} from 'react-router-dom';
 
 import useProduct from './_useProduct';
 
@@ -26,20 +26,24 @@ function Detail() {
 
   const title = loading ? <h1 className='mockTitle'></h1> : <h1 className='productTitle'>{product.title}</h1>;
   const description = loading ? <p className='mockDescription'></p> : <p className='productDescription'>{product.description}</p>;
+  const productPrice = loading ? '$' : `$${product.price}`;
 
   return (
     <div style={tempStyle}>
-      <a className=''>Back to all products</a>
+      <div className='breadCrumbWrapper'><Link to="/">&larr; Back to all products</Link></div>
       <div className='productContainer'>
         <div className='productImage'>
           <div className='productImageWrapper'>
-            <img src={loading ? '' : product.imageUrl} alt={product ? product.title : ''}></img>
+            <img src={loading ? '' : product.image} alt={product ? product.title : ''}></img>
           </div>
         </div>
         <div className='productInfo'>
           {title}
-          {description}
+          <div className='priceWrapper'>
+            <span>{productPrice}</span>
+          </div>
           <button className='productButton' onClick={handleClick}>Add to Cart</button>
+          {description}
         </div>
       </div>
     </div>
