@@ -6,3 +6,62 @@ img {
 a, button {
     cursor: pointer;
 }
+
+.productContainer {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.productImage {
+    flex: 0 1 auto;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.productInfo {
+    flex: 0 1 auto;
+    width: 50%;
+    padding: 0 0 0 30px;
+    box-sizing: border-box;
+}
+
+.productImageWrapper {
+    width: 100%;
+    position: relative;
+    background-color: ghostwhite;
+    height: 0;
+    padding-bottom: 100%;
+}
+
+.productImageWrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+.productTitle {
+    font-size: 32px;
+    margin: 0 0 16px 0;
+    line-height: 1;
+}
+
+.mockTitle {
+    background-color: ghostwhite;
+    width: 250px;
+    height: 32px;
+    margin: 0 0 16px 0;
+}
+
+.productDescription {
+    font-size: 16px;
+    margin: 0 0 16px 0;
+}
+
+.mockDescription {
+    background-color: ghostwhite;
+    height: 16px;
+    margin: 0 0 16px 0;
+}

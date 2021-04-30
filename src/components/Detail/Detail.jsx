@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {useParams} from 'react-router-dom';
 
 import useProduct from './_useProduct';
@@ -11,37 +11,35 @@ import './Detail.css';
 const tempStyle = {
   margin: '0 auto',
   maxWidth: '1200px',
-}
-
-const productContainer = {
-  display: 'flex',
+  padding: '30px',
 }
 
 function Detail() {
   //get id from router
   const { id } = useParams();
 
-  const [loading, product] = useProduct(id);
-
-  if(loading) return <div style={tempStyle}>loading...</div>;
-
-  const {title, description, imageUrl} = product;
-
   function handleClick() {
     console.log('ADD TO CART', id);
   };
 
+  const [loading, product] = useProduct(id);
+
+  const title = loading ? <h1 className='mockTitle'></h1> : <h1 className='productTitle'>{product.title}</h1>;
+  const description = loading ? <p className='mockDescription'></p> : <p className='productDescription'>{product.description}</p>;
+
   return (
     <div style={tempStyle}>
-      <a>Back to all products</a>
-      <div style={productContainer}>
-        <div style={{flex: '0 1 50%'}}>
-          <img src={imageUrl} alt={title}></img>
+      <a className=''>Back to all products</a>
+      <div className='productContainer'>
+        <div className='productImage'>
+          <div className='productImageWrapper'>
+            <img src={loading ? '' : product.imageUrl} alt={product ? product.title : ''}></img>
+          </div>
         </div>
-        <div style={{flex: '0 1 50%', padding: '0 0 0 30px'}}>
-          <h1>{title}</h1>
-          <p>{description}</p>
-          <button onClick={handleClick}>Add to Cart</button>
+        <div className='productInfo'>
+          {title}
+          {description}
+          <button className='productButton' onClick={handleClick}>Add to Cart</button>
         </div>
       </div>
     </div>
