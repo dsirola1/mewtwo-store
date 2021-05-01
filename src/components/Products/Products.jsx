@@ -15,7 +15,7 @@ export default function Product() {
   }
     
   return (
-    <div className="totalProds">
+    <div className="eachProd">
       <div>
         {/* <label htmlFor="search">Search by Name</label> */}
         <input className="searchTextBox" type="text" placeholder="Search by Name"></input>

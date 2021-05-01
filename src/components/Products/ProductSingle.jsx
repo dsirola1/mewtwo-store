@@ -9,6 +9,7 @@ const ProductSingle = ({id, title, price, image}) => {
         <h2>Price: ${price}</h2>
         {/* <h3>{description}</h3> */}
         <img className={'imgProd'} src={image} alt={title}/>
+        <h3>Free Two Day Delivery with Mewtwo Store Prime</h3>
       </div>
     </a>
   )
