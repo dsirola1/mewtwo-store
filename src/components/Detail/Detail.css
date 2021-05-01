@@ -1,0 +1,99 @@
+:root {
+    --body-color: #171717;
+    --placeholer-color: ghostwhite;
+}
+  
+
+html, body {
+    color: var(--body-color);
+    font-family: Arial, Helvetica, sans-serif;
+}
+img {
+    max-width: 100%;
+    width: auto;
+}
+
+a, button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.productContainer {
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.productImage {
+    flex: 0 1 auto;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.productInfo {
+    flex: 0 1 auto;
+    width: 50%;
+    padding: 0 0 0 30px;
+    box-sizing: border-box;
+}
+
+.productImageWrapper {
+    width: 100%;
+    position: relative;
+    background-color: var(--placeholer-color);
+    height: 0;
+    padding-bottom: 132%;
+}
+
+.productImageWrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+}
+
+.productTitle {
+    font-size: 32px;
+    margin: 0 0 16px 0;
+    line-height: 1;
+}
+
+.mockTitle {
+    background-color: var(--placeholer-color);
+    width: 250px;
+    height: 32px;
+    margin: 0 0 16px 0;
+}
+
+.productDescription {
+    font-size: 16px;
+    margin: 0 0 16px 0;
+}
+
+.mockDescription {
+    background-color: var(--placeholer-color);
+    height: 16px;
+    margin: 0 0 16px 0;
+}
+
+.priceWrapper {
+    margin-bottom: 16px;
+}
+
+.productButton {
+    padding: 16px;
+    text-transform: uppercase;
+    color: white;
+    background-color: var(--body-color);
+    border: none;
+    margin: 0 0 16px 0;
+}
+
+.breadCrumbWrapper {
+    margin-bottom: 30px;
+}
