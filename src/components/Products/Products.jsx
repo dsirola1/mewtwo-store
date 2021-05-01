@@ -15,7 +15,7 @@ export default function Product() {
   }
     
   return (
-    <div className="totalProds">
+    <div className="eachProd">
       <div>
         {/* <label htmlFor="search">Search by Name</label> */}
         <input className="searchTextBox" type="text" placeholder="Search by Name"></input>
@@ -24,7 +24,7 @@ export default function Product() {
       {
         list.map(({ id, title, image, price, description }) => { 
           // console.log(title)
-          return <ProductSingle key={id} title={title} image={image} price={price} description={description}/>
+          return <ProductSingle key={id} id={id} title={title} image={image} price={price} description={description}/>
         })
       }
     </div>
