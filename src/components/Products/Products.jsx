@@ -24,7 +24,7 @@ export default function Product() {
       {
         list.map(({ id, title, image, price, description }) => { 
           // console.log(title)
-          return <ProductSingle key={id} title={title} image={image} price={price} description={description}/>
+          return <ProductSingle key={id} id={id} title={title} image={image} price={price} description={description}/>
         })
       }
     </div>
