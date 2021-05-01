@@ -1,4 +1,4 @@
-import React, { Component, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Products.css'
 import ProductSingle from './ProductSingle.jsx'
 
@@ -11,7 +11,7 @@ export default function Product() {
     const response = await fetch('https://fakestoreapi.com/products')
     const data = await response.json();
     setList(data)
-    console.log(data)
+    // console.log(data)
   }
     
   return (
@@ -23,7 +23,7 @@ export default function Product() {
       </div>
       {
         list.map(({ id, title, image, price, description }) => { 
-          console.log(title)
+          // console.log(title)
           return <ProductSingle key={id} title={title} image={image} price={price} description={description}/>
         })
       }

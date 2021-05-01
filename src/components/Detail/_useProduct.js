@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 
 function useProduct(id) {
   const [product, setProduct] = useState(null);
