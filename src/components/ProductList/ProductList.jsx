@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import './ProductDashboard.css';
-import ProductSingle from './ProductSingle.jsx';
+import './ProductList.css';
+import ProductSingle from './ProductListSingle';
 
-export default function ProductDashboard() {
+export default function ProductList() {
   const [list, setList] = useState([]);
   useEffect(() => {
     loadData();
