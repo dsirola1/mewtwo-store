@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useAuth } from '../../routes/useAuth';
 import axios from 'axios';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -40,6 +41,8 @@ export default function SignUp() {
   const [lastname, setLastname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const auth = useAuth();
   const history = useHistory();
 
   const handleSignup = async () => {
@@ -51,7 +54,9 @@ export default function SignUp() {
         password,
       });
       console.log('Signed Up ---> res.data ---> ', res.data);
-      history.push('/');
+      auth.signup(res.data.id, res.data.email, res.data.firstname, () =>
+        history.push('/')
+      );
     } catch (error) {
       if (error.response.status === 401) {
         history.push('/signin');
