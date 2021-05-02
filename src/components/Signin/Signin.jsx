@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
@@ -42,8 +43,7 @@ const Signin = () => {
   const handleSignin = async () => {
     try {
       const res = await axios.post('/user/signin', { email, password });
-      console.log('Signed In!');
-      console.log('res.data ---> ', res.data);
+      console.log('Signed In ---> res.data ---> ', res.data);
       history.push('/');
     } catch (error) {
       if (error.response.status === 401) {
@@ -69,7 +69,7 @@ const Signin = () => {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Sign In
         </Typography>
         <form className={classes.form} noValidate onSubmit={handleSubmit}>
           <TextField
@@ -104,11 +104,13 @@ const Signin = () => {
           >
             Sign In
           </Button>
-          <Typography align="center">
-            <Link href="/signup" variant="body2">
-              Don't have an account? Sign Up
-            </Link>
-          </Typography>
+          <Grid container justify="center">
+            <Grid item>
+              <Link href="/signup" variant="body2">
+                Don't have an account? Sign Up
+              </Link>
+            </Grid>
+          </Grid>
         </form>
       </div>
       <Box mt={8}>
