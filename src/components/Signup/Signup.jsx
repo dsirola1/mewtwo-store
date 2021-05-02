@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuth } from '../../routes/useAuth';
 import axios from 'axios';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Avatar from '@material-ui/core/Avatar';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Link from '@material-ui/core/Link';
+import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -53,13 +53,13 @@ export default function SignUp() {
         email,
         password,
       });
-      console.log('Signed Up ---> res.data ---> ', res.data);
+      console.log('Sign Up Success ---> res.data ---> ', res.data);
       auth.signup(res.data.id, res.data.email, res.data.firstname, () =>
         history.push('/')
       );
     } catch (error) {
       if (error.response.status === 401) {
-        history.push('/signin');
+        history.push('/signup');
       }
       console.log(
         'Error in handleSubmit of Signup component:',
@@ -94,7 +94,7 @@ export default function SignUp() {
                 type="text"
                 onChange={(e) => setFirstname(e.target.value)}
                 required
-                autoComplete="fname"
+                autoComplete="off"
                 autoFocus
               />
             </Grid>
@@ -107,7 +107,7 @@ export default function SignUp() {
                 type="text"
                 onChange={(e) => setLastname(e.target.value)}
                 required
-                autoComplete="lname"
+                autoComplete="off"
               />
             </Grid>
             <Grid item xs={12}>
@@ -119,7 +119,7 @@ export default function SignUp() {
                 type="email"
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                autoComplete="email"
+                autoComplete="off"
               />
             </Grid>
             <Grid item xs={12}>
@@ -131,7 +131,7 @@ export default function SignUp() {
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                autoComplete="current-password"
+                autoComplete="off"
               />
             </Grid>
           </Grid>
@@ -140,6 +140,7 @@ export default function SignUp() {
             fullWidth
             variant="contained"
             color="primary"
+            size="large"
             className={classes.submit}
           >
             Sign Up

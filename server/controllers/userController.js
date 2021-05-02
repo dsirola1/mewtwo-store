@@ -25,7 +25,7 @@ userController.createUser = async (req, res, next) => {
     res.locals.lastname = data.rows[0].lastname;
     return next();
   } catch (err) {
-    console.log('createUser err ---> ', err);
+    console.log('usersController.addUser err ---> ', err);
     return next({
       log: 'usersController.addUser: ERROR: Error writing to database',
       message: {
@@ -64,7 +64,7 @@ userController.verifyUser = async (req, res, next) => {
     res.locals.lastname = data.rows[0].lastname;
     return next();
   } catch (err) {
-    console.log('verifyUser err ---> ', err);
+    console.log('usersController.verifyUser err ---> ', err);
     return next({
       log: 'usersController.verifyUser: ERROR: Unable to verify user data.',
       status: 401,

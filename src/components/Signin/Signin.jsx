@@ -2,17 +2,17 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuth } from '../../routes/useAuth';
 import axios from 'axios';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Avatar from '@material-ui/core/Avatar';
+import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+import Grid from '@material-ui/core/Grid';
+import Link from '@material-ui/core/Link';
+import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -41,13 +41,12 @@ const Signin = () => {
   const [password, setPassword] = useState('');
 
   const auth = useAuth();
-  console.log(auth.user);
   const history = useHistory();
 
   const handleSignin = async () => {
     try {
       const res = await axios.post('/user/signin', { email, password });
-      console.log('Signed In ---> res.data ---> ', res.data);
+      console.log('Sign In Success ---> res.data ---> ', res.data);
       auth.signin(res.data.id, res.data.email, res.data.firstname, () =>
         history.push('/')
       );
@@ -87,7 +86,7 @@ const Signin = () => {
             type="email"
             onChange={(e) => setEmail(e.target.value)}
             required
-            autoComplete="email"
+            autoComplete="off"
             autoFocus
           />
           <TextField
@@ -99,13 +98,14 @@ const Signin = () => {
             type="password"
             onChange={(e) => setPassword(e.target.value)}
             required
-            autoComplete="current-password"
+            autoComplete="off"
           />
           <Button
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
+            size="large"
             className={classes.submit}
           >
             Sign In
