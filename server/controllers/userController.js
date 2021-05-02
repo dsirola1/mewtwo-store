@@ -47,14 +47,14 @@ userController.verifyUser = async (req, res, next) => {
     const data = await db.query(verifyUserText, verifyUserData);
 
     if (data.rows.length === 0) {
-      throw new Error('email does not exist!'); 
+      throw new Error('email does not exist!');
     }
 
     const hashedPassword = data.rows[0].password;
     const isMatch = await bcrypt.compare(password, hashedPassword);
 
     if (!isMatch) {
-      throw new Error('Password is incorrect!'); 
+      throw new Error('Password is incorrect!');
     }
 
     console.log('data.rows[0] ---> ', data.rows[0]);
