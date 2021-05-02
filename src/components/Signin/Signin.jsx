@@ -46,7 +46,7 @@ const Signin = () => {
   const handleSignin = async () => {
     try {
       const res = await axios.post('/user/signin', { email, password });
-      console.log('Signed In ---> res.data ---> ', res.data);
+      console.log('Sign In Success ---> res.data ---> ', res.data);
       auth.signin(res.data.id, res.data.email, res.data.firstname, () =>
         history.push('/')
       );
@@ -86,6 +86,7 @@ const Signin = () => {
             type="email"
             onChange={(e) => setEmail(e.target.value)}
             required
+            autoComplete="off"
             autoFocus
           />
           <TextField
@@ -97,6 +98,7 @@ const Signin = () => {
             type="password"
             onChange={(e) => setPassword(e.target.value)}
             required
+            autoComplete="off"
           />
           <Button
             type="submit"

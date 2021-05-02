@@ -53,7 +53,7 @@ export default function SignUp() {
         email,
         password,
       });
-      console.log('Signed Up ---> res.data ---> ', res.data);
+      console.log('Sign Up Success ---> res.data ---> ', res.data);
       auth.signup(res.data.id, res.data.email, res.data.firstname, () =>
         history.push('/')
       );
@@ -94,6 +94,7 @@ export default function SignUp() {
                 type="text"
                 onChange={(e) => setFirstname(e.target.value)}
                 required
+                autoComplete="off"
                 autoFocus
               />
             </Grid>
@@ -106,6 +107,7 @@ export default function SignUp() {
                 type="text"
                 onChange={(e) => setLastname(e.target.value)}
                 required
+                autoComplete="off"
               />
             </Grid>
             <Grid item xs={12}>
@@ -117,6 +119,7 @@ export default function SignUp() {
                 type="email"
                 onChange={(e) => setEmail(e.target.value)}
                 required
+                autoComplete="off"
               />
             </Grid>
             <Grid item xs={12}>
@@ -128,6 +131,7 @@ export default function SignUp() {
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                autoComplete="off"
               />
             </Grid>
           </Grid>
