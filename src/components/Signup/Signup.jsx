@@ -14,8 +14,6 @@ import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Box from '@material-ui/core/Box';
 
-
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -61,7 +59,7 @@ export default function SignUp() {
       );
     } catch (error) {
       if (error.response.status === 401) {
-        history.push('/signin');
+        history.push('/signup');
       }
       console.log(
         'Error in handleSubmit of Signup component:',
