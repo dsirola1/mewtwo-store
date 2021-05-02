@@ -41,7 +41,6 @@ const Signin = () => {
   const [password, setPassword] = useState('');
 
   const auth = useAuth();
-  console.log(auth.user);
   const history = useHistory();
 
   const handleSignin = async () => {
@@ -87,7 +86,6 @@ const Signin = () => {
             type="email"
             onChange={(e) => setEmail(e.target.value)}
             required
-            autoComplete="email"
             autoFocus
           />
           <TextField
@@ -99,13 +97,13 @@ const Signin = () => {
             type="password"
             onChange={(e) => setPassword(e.target.value)}
             required
-            autoComplete="current-password"
           />
           <Button
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
+            size="large"
             className={classes.submit}
           >
             Sign In

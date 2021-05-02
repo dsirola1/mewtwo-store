@@ -94,7 +94,6 @@ export default function SignUp() {
                 type="text"
                 onChange={(e) => setFirstname(e.target.value)}
                 required
-                autoComplete="fname"
                 autoFocus
               />
             </Grid>
@@ -107,7 +106,6 @@ export default function SignUp() {
                 type="text"
                 onChange={(e) => setLastname(e.target.value)}
                 required
-                autoComplete="lname"
               />
             </Grid>
             <Grid item xs={12}>
@@ -119,7 +117,6 @@ export default function SignUp() {
                 type="email"
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                autoComplete="email"
               />
             </Grid>
             <Grid item xs={12}>
@@ -131,7 +128,6 @@ export default function SignUp() {
                 type="password"
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                autoComplete="current-password"
               />
             </Grid>
           </Grid>
@@ -140,6 +136,7 @@ export default function SignUp() {
             fullWidth
             variant="contained"
             color="primary"
+            size="large"
             className={classes.submit}
           >
             Sign Up
