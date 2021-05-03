@@ -1,37 +1,35 @@
-import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+import PrivateRoute from './routes/PrivateRoute';
 import Signin from './components/Signin/Signin';
 import Signup from './components/Signup/Signup';
 import ProductList from './components/ProductList/ProductList';
 import ProductDetail from './components/ProductDetail/ProductDetail';
 import MainNav from './components/MainNav/MainNav';
+import './App.css';
 
-// import './App.css';
-
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <Router>
-        <MainNav />
-        <Switch>
-          <Route exact path="/signin">
-            <Signin />
-          </Route>
+      <MainNav />
+      <Switch>
+        <Route exact path="/signin">
+          <Signin />
+        </Route>
 
-          <Route exact path="/signup">
-            <Signup />
-          </Route>
+        <Route exact path="/signup">
+          <Signup />
+        </Route>
 
-          <Route exact path="/">
-            <ProductList />
-          </Route>
+        <PrivateRoute exact path="/">
+          <ProductList />
+        </PrivateRoute>
 
-          <Route exact path="/products/:id">
-            <ProductDetail />
-          </Route>
-        </Switch>
-      </Router>
+        <Route exact path="/products/:id">
+          <ProductDetail />
+        </Route>
+      </Switch>
     </div>
   );
-}
+};
 
 export default App;
