@@ -5,6 +5,7 @@ import Signup from './components/Signup/Signup';
 import ProductList from './components/ProductList/ProductList';
 import ProductDetail from './components/ProductDetail/ProductDetail';
 import MainNav from './components/MainNav/MainNav';
+import './App.css';
 
 const App = () => {
   return (

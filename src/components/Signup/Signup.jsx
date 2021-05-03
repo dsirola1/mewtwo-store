@@ -9,10 +9,10 @@ import Avatar from '@material-ui/core/Avatar';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Link from '@material-ui/core/Link';
 import Box from '@material-ui/core/Box';
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -83,10 +83,14 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign Up
         </Typography>
-        <form className={classes.form} noValidate onSubmit={handleSubmit}>
+        <ValidatorForm
+          className={classes.form}
+          noValidate
+          onSubmit={handleSubmit}
+        >
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
-              <TextField
+              <TextValidator
                 variant="outlined"
                 fullWidth
                 label="First Name"
@@ -96,10 +100,12 @@ export default function SignUp() {
                 required
                 autoComplete="off"
                 autoFocus
+                validators={['required']}
+                errorMessages={['First Name is required']}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
-              <TextField
+              <TextValidator
                 variant="outlined"
                 fullWidth
                 label="Last Name"
@@ -108,10 +114,12 @@ export default function SignUp() {
                 onChange={(e) => setLastname(e.target.value)}
                 required
                 autoComplete="off"
+                validators={['required']}
+                errorMessages={['Last Name is required']}
               />
             </Grid>
             <Grid item xs={12}>
-              <TextField
+              <TextValidator
                 variant="outlined"
                 fullWidth
                 label="Email Address"
@@ -120,10 +128,12 @@ export default function SignUp() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 autoComplete="off"
+                validators={['required', 'isEmail']}
+                errorMessages={['Email is required', 'Email is not valid']}
               />
             </Grid>
             <Grid item xs={12}>
-              <TextField
+              <TextValidator
                 variant="outlined"
                 fullWidth
                 label="Password"
@@ -132,6 +142,8 @@ export default function SignUp() {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 autoComplete="off"
+                validators={['required']}
+                errorMessages={['Password is required']}
               />
             </Grid>
           </Grid>
@@ -142,6 +154,8 @@ export default function SignUp() {
             color="primary"
             size="large"
             className={classes.submit}
+            validators={['required']}
+            errorMessages={['Password is required']}
           >
             Sign Up
           </Button>
@@ -152,7 +166,7 @@ export default function SignUp() {
               </Link>
             </Grid>
           </Grid>
-        </form>
+        </ValidatorForm>
       </div>
       <Box mt={8}>
         <Typography variant="body2" color="textSecondary" align="center">

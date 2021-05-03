@@ -8,11 +8,11 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Link from '@material-ui/core/Link';
 import Box from '@material-ui/core/Box';
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -76,8 +76,12 @@ const Signin = () => {
         <Typography component="h1" variant="h5">
           Sign In
         </Typography>
-        <form className={classes.form} noValidate onSubmit={handleSubmit}>
-          <TextField
+        <ValidatorForm
+          className={classes.form}
+          noValidate
+          onSubmit={handleSubmit}
+        >
+          <TextValidator
             variant="outlined"
             margin="normal"
             fullWidth
@@ -88,8 +92,10 @@ const Signin = () => {
             required
             autoComplete="off"
             autoFocus
+            validators={['required', 'isEmail']}
+            errorMessages={['Email is required', 'Email is not valid']}
           />
-          <TextField
+          <TextValidator
             variant="outlined"
             margin="normal"
             fullWidth
@@ -99,6 +105,8 @@ const Signin = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
             autoComplete="off"
+            validators={['required']}
+            errorMessages={['Password is required']}
           />
           <Button
             type="submit"
@@ -117,7 +125,7 @@ const Signin = () => {
               </Link>
             </Grid>
           </Grid>
-        </form>
+        </ValidatorForm>
       </div>
       <Box mt={8}>
         <Typography variant="body2" color="textSecondary" align="center">
