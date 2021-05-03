@@ -58,8 +58,8 @@ function ProductDetail() {
 					</div>
 					<button className='productButton' onClick={handleClick}>
 						Add to Cart
-						<CheckoutButton />
 					</button>
+					<CheckoutButton />
 					{description}
 				</div>
 			</div>
