@@ -25,7 +25,7 @@ function ProductDetail() {
   const [loading, product] = useProduct(id);
 
   const title = loading ? (
-    <h1 className="mockTitle"></h1>
+    <div className="mockTitle"></div>
   ) : (
     <h1 className="productTitle">{product.title}</h1>
   );

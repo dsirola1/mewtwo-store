@@ -15,7 +15,7 @@ function useProduct(id) {
     .catch((err) => {
       console.log('we got err', err);
     })
-  }, []);
+  }, [id]);
   // fetch data
   return [loading, product];
 };
