@@ -19,7 +19,7 @@ export default function MainNav() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/detail/:id" activeClassName="active">
+            <NavLink to="/cart" activeClassName="active">
               CART
             </NavLink>
           </li>

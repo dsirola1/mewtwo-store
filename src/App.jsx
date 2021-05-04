@@ -6,28 +6,37 @@ import ProductList from './components/ProductList/ProductList';
 import ProductDetail from './components/ProductDetail/ProductDetail';
 import MainNav from './components/MainNav/MainNav';
 import './App.css';
+import ShoppingCart from './components/ShoppingCart/ShoppingCart';
+
+import { CartProvider } from './utils/_useCart';
 
 const App = () => {
   return (
     <div className="App">
-      <MainNav />
-      <Switch>
-        <Route exact path="/signin">
-          <Signin />
-        </Route>
+      <CartProvider>
+        <MainNav />
+        <Switch>
+          <Route exact path="/signin">
+            <Signin />
+          </Route>
 
-        <Route exact path="/signup">
-          <Signup />
-        </Route>
+          <Route exact path="/signup">
+            <Signup />
+          </Route>
 
-        <PrivateRoute exact path="/">
-          <ProductList />
-        </PrivateRoute>
+          <PrivateRoute exact path="/">
+            <ProductList />
+          </PrivateRoute>
 
-        <Route exact path="/products/:id">
-          <ProductDetail />
-        </Route>
-      </Switch>
+          <Route exact path="/products/:id">
+            <ProductDetail />
+          </Route>
+
+          <Route exact path='/cart'>
+            <ShoppingCart />
+          </Route>
+        </Switch>
+      </CartProvider>
     </div>
   );
 };

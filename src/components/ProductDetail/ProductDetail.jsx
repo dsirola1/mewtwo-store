@@ -8,6 +8,9 @@ import './ProductDetail.css';
 // get id from react router
 // fetch data based on id for product
 
+// get functionality from useCart context
+// actions: addItem
+
 const tempStyle = {
   margin: '0 auto',
   maxWidth: '1200px',
