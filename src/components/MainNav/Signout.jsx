@@ -2,6 +2,8 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useAuth } from '../../routes/useAuth';
 import axios from 'axios';
+import IconButton from '@material-ui/core/IconButton';
+import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
 
 const SignoutButton = () => {
   const auth = useAuth();
@@ -24,7 +26,13 @@ const SignoutButton = () => {
     }
   };
 
-  return <div onClick={handleClick}>SIGN OUT</div>;
+  return (
+    <span onClick={handleClick}>
+      <IconButton color="inherit">
+        <PowerSettingsNewIcon />
+      </IconButton>
+    </span>
+  );
 };
 
 export default SignoutButton;
