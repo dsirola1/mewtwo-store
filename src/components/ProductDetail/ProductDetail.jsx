@@ -4,10 +4,15 @@ import { useParams, Link } from 'react-router-dom';
 import useProduct from './_useProduct';
 import CheckoutButton from '../Stripe-Checkout/StripeCheckout';
 
+import {actions, useCartContext} from '../../utils/_useCart';
+
 import './ProductDetail.css';
 
 // get id from react router
 // fetch data based on id for product
+
+// get functionality from useCart context
+// actions: addItem
 
 const tempStyle = {
   margin: '0 auto',
@@ -19,14 +24,23 @@ function ProductDetail() {
   //get id from router
   const { id } = useParams();
 
-  function handleClick() {
-    console.log('ADD TO CART', id);
-  }
+  const {dispatch} = useCartContext();
 
   const [loading, product] = useProduct(id);
 
+  function handleClick() {
+    console.log('ADD TO CART', id);
+    const productPayload = {
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      image: product.image,
+    }
+    dispatch({type: actions.ADD, payload: {...productPayload}});
+  }
+
   const title = loading ? (
-    <h1 className='mockTitle'>''</h1>
+    <div className='mockTitle'></div>
   ) : (
     <h1 className='productTitle'>{product.title}</h1>
   );

@@ -14,6 +14,8 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
+import { useCartContext } from '../../utils/_useCart';
+
 const useStyles = makeStyles((theme) => ({
 	grow: {
 		flexGrow: 1,
@@ -48,6 +50,7 @@ export default function MainNav() {
 
 	const mobileMenuId = 'primary-search-account-menu-mobile';
 
+	const { state: { totalQuantity } } = useCartContext();
 	const renderMobileMenu = (
 		<Menu
 			anchorEl={mobileMoreAnchorEl}
@@ -117,7 +120,7 @@ export default function MainNav() {
             </IconButton>
 
 						<IconButton color='inherit'>
-							<Badge badgeContent={4} color='secondary'>
+							<Badge badgeContent={totalQuantity} color='secondary'>
 								<Link to='/checkout'>
 									<ShoppingCartIcon />
 								</Link>
