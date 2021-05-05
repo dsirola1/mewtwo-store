@@ -6,14 +6,13 @@ import { ProvideAuth } from './routes/useAuth';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <ProvideAuth>
-        <App />
-      </ProvideAuth>
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
+	<BrowserRouter>
+		<ProvideAuth>
+			<App />
+		</ProvideAuth>
+	</BrowserRouter>,
+
+	document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
