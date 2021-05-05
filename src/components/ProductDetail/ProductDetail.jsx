@@ -15,14 +15,14 @@ import './ProductDetail.css';
 // actions: addItem
 
 const tempStyle = {
-	margin: '0 auto',
-	maxWidth: '1200px',
-	padding: '30px',
+  margin: '0 auto',
+  maxWidth: '1200px',
+  padding: '30px',
 };
 
 function ProductDetail() {
-	//get id from router
-	const { id } = useParams();
+  //get id from router
+  const { id } = useParams();
 
   const {dispatch} = useCartContext();
 
@@ -51,34 +51,34 @@ function ProductDetail() {
   );
   const productPrice = loading ? '$' : `$${product.price}`;
 
-	return (
-		<div style={tempStyle}>
-			<div className='breadCrumbWrapper'>
-				<Link to='/'>&larr; Back to all products</Link>
-			</div>
-			<div className='productContainer'>
-				<div className='productImage'>
-					<div className='productImageWrapper'>
-						<img
-							src={loading ? '' : product.image}
-							alt={product ? product.title : ''}
-						></img>
-					</div>
-				</div>
-				<div className='productInfo'>
-					{title}
-					<div className='priceWrapper'>
-						<span>{productPrice}</span>
-					</div>
-					<button className='productButton' onClick={handleClick}>
-						Add to Cart
-					</button>
-					<CheckoutButton />
-					{description}
-				</div>
-			</div>
-		</div>
-	);
+  return (
+    <div style={tempStyle}>
+      <div className='breadCrumbWrapper'>
+        <Link to='/'>&larr; Back to all products</Link>
+      </div>
+      <div className='productContainer'>
+        <div className='productImage'>
+          <div className='productImageWrapper'>
+            <img
+              src={loading ? '' : product.image}
+              alt={product ? product.title : ''}
+            ></img>
+          </div>
+        </div>
+        <div className='productInfo'>
+          {title}
+          <div className='priceWrapper'>
+            <span>{productPrice}</span>
+          </div>
+          <button className='productButton' onClick={handleClick}>
+            Add to Cart
+          </button>
+          <CheckoutButton />
+          {description}
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default ProductDetail;
