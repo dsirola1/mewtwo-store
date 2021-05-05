@@ -108,13 +108,13 @@ export default function MainNav() {
 						</Link>
 					</Typography>
 
-					<div className={classes.grow} />
-					<div className={classes.sectionDesktop}>
-						<IconButton color='inherit'>
-							<Link exact to='/'>
-								<FormatListBulletedIcon />
-							</Link>
-						</IconButton>
+          <div className={classes.grow} />
+          <div className={classes.sectionDesktop}>
+            <IconButton color='inherit'>
+              <Link exact to='/'>
+                <FormatListBulletedIcon />
+              </Link>
+            </IconButton>
 
 						<IconButton color='inherit'>
 							<Badge badgeContent={4} color='secondary'>

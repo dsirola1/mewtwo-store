@@ -8,28 +8,28 @@ import MainNav from './components/MainNav/MainNav';
 import './App.css';
 
 const App = () => {
-	return (
-		<div className='App'>
-			<MainNav />
-			<Switch>
-				<Route exact path='/signin'>
-					<Signin />
-				</Route>
+  return (
+    <div className='App'>
+      <MainNav />
+      <Switch>
+        <Route exact path='/signin'>
+          <Signin />
+        </Route>
 
-				<Route exact path='/signup'>
-					<Signup />
-				</Route>
+        <Route exact path='/signup'>
+          <Signup />
+        </Route>
 
-				<PrivateRoute exact path='/'>
-					<ProductList />
-				</PrivateRoute>
+        <PrivateRoute exact path='/'>
+          <ProductList />
+        </PrivateRoute>
 
-				<Route exact path='/products/:id'>
-					<ProductDetail />
-				</Route>
-			</Switch>
-		</div>
-	);
+        <Route exact path='/products/:id'>
+          <ProductDetail />
+        </Route>
+      </Switch>
+    </div>
+  );
 };
 
 export default App;
