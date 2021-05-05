@@ -12,27 +12,27 @@ import { CartProvider } from './utils/_useCart';
 
 const App = () => {
   return (
-    <div className="App">
+    <div className='App'>
       <CartProvider>
         <MainNav />
         <Switch>
-          <Route exact path="/signin">
+          <Route exact path='/signin'>
             <Signin />
           </Route>
 
-          <Route exact path="/signup">
+          <Route exact path='/signup'>
             <Signup />
           </Route>
 
-          <PrivateRoute exact path="/">
+          <PrivateRoute exact path='/'>
             <ProductList />
           </PrivateRoute>
 
-          <Route exact path="/products/:id">
+          <Route exact path='/products/:id'>
             <ProductDetail />
           </Route>
 
-          <Route exact path='/cart'>
+          <Route exact path='/checkout'>
             <ShoppingCart />
           </Route>
         </Switch>

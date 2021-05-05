@@ -40,14 +40,14 @@ function ProductDetail() {
   }
 
   const title = loading ? (
-    <div className="mockTitle"></div>
+    <div className='mockTitle'></div>
   ) : (
-    <h1 className="productTitle">{product.title}</h1>
+    <h1 className='productTitle'>{product.title}</h1>
   );
   const description = loading ? (
-    <p className="mockDescription"></p>
+    <p className='mockDescription'></p>
   ) : (
-    <p className="productDescription">{product.description}</p>
+    <p className='productDescription'>{product.description}</p>
   );
   const productPrice = loading ? '$' : `$${product.price}`;
 
