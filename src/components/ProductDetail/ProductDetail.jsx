@@ -3,6 +3,8 @@ import { useParams, Link } from 'react-router-dom';
 
 import useProduct from './_useProduct';
 
+import {actions, useCartContext} from '../../utils/_useCart';
+
 import './ProductDetail.css';
 
 // get id from react router
@@ -21,11 +23,20 @@ function ProductDetail() {
   //get id from router
   const { id } = useParams();
 
-  function handleClick() {
-    console.log('ADD TO CART', id);
-  }
+  const {dispatch} = useCartContext();
 
   const [loading, product] = useProduct(id);
+
+  function handleClick() {
+    console.log('ADD TO CART', id);
+    const productPayload = {
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      image: product.image,
+    }
+    dispatch({type: actions.ADD, payload: {...productPayload}});
+  }
 
   const title = loading ? (
     <div className="mockTitle"></div>

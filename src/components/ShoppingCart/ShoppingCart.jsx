@@ -1,5 +1,7 @@
 import React from 'react';
 
+import {actions, useCartContext} from '../../utils/_useCart';
+
 import './ShoppingCart.css';
 
 // get data from context useCart
@@ -36,6 +38,8 @@ const tempStyle = {
 };
 
 function ShoppingCart() {
+  const {state} = useCartContext();
+  console.log(state);
   return (
     <div style={tempStyle}>
       <h1>Shopping cart</h1>
