@@ -4,16 +4,16 @@ import ProductSingle from './ProductListSingle';
 import SearchBar from './SearchBar'
 
 export default function ProductList() {
-  const [list, setList] = useState([]);
-  useEffect(() => {
-    loadData();
-  }, []);
-  const loadData = async () => {
-    const response = await fetch('https://fakestoreapi.com/products');
-    const data = await response.json();
-    setList(data);
-    // console.log(data)
-  };
+	const [list, setList] = useState([]);
+	useEffect(() => {
+		loadData();
+	}, []);
+	const loadData = async () => {
+		const response = await fetch('https://fakestoreapi.com/products');
+		const data = await response.json();
+		setList(data);
+		// console.log(data)
+	};
 
   return (
     <div className="eachProd">
