@@ -13,6 +13,8 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
+import { useCartContext } from '../../utils/_useCart';
+
 const useStyles = makeStyles((theme) => ({
 	grow: {
 		flexGrow: 1,
@@ -50,6 +52,8 @@ export default function MainNav() {
 	};
 	const mobileMenuId = 'primary-search-account-menu-mobile';
 
+	const { state: { totalQuantity } } = useCartContext();
+
 	return (
 		<div>
 			<AppBar position='static'>
@@ -70,7 +74,7 @@ export default function MainNav() {
 
 						<IconButton color='inherit'>
 							<Link to='/checkout'>
-								<Badge badgeContent={4} color='secondary'>
+								<Badge badgeContent={totalQuantity} color='secondary'>
 									<ShoppingCartIcon />
 								</Badge>
 							</Link>

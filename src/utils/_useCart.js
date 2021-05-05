@@ -13,34 +13,41 @@ const actions = {
 
 const initialState = {
   products: [],
-  total: 0,
+  totalPrice: 0,
+  totalQuantity: 0,
 };
 
 function reducer(state, action) {
+  console.log('call reducer');
   let products;
-  let total = 0;
+  let totalPrice = 0;
+  let totalQuantity = 0;
   switch(action.type) {
     case actions.INCREASE:
       // find product with same id in state.products
       // increase quantity by 1
       products = state.products.map(el => el);
       // increase total by price
-      total = state.total + 1;
+      totalPrice = state.totalPrice + 1;
+      // increase total quantity
+      totalQuantity = state.totalQuantity + 1;
       // return updated state
-      return {products, total};
+      return {products, totalPrice, totalQuantity};
     case actions.DECREASE:
       // find product with same id in state.products
       // if current product qnt <= 1, remove product
       // else decrease quantity
       products = state.products.map(el => el);
       // decrease total by price
-      total = state.total - 1;
-      return {products, total};
+      totalPrice = state.totalPrice - 1;
+      // increase total quantity
+      totalQuantity = state.totalQuantity - 1;
+      return {products, totalPrice, totalQuantity};
     case actions.REMOVE: 
       // find product with same id in state.products
       // remove this product
       // decrease total by price * product qnt
-      return {products, total};
+      return {products, totalPrice, totalQuantity};
     case actions.ADD: 
       console.log('call reducer ADD', action.payload);
       console.log('state -->', state);
@@ -50,7 +57,7 @@ function reducer(state, action) {
       products = state.products.map(product => {
         if(product.id === action.payload.id) {
           isExist = true;
-          total = state.total + action.payload.price;
+
           return {
             ...product,
             quantity: product.quantity + 1,
@@ -67,12 +74,12 @@ function reducer(state, action) {
           total: action.payload.price
         }
         products.push(newProduct);
-
-        total = state.total + Number(action.payload.price);
       }
-      // increase total by price 
-      console.log('products -->', products, 'total -->', total);
-      return {products, total};
+      // increase total price and qnt
+      totalPrice = state.totalPrice + Number(action.payload.price);
+        totalQuantity = state.totalQuantity + 1;
+      console.log('products -->', products, 'total -->', totalPrice, totalQuantity);
+      return {products, totalPrice, totalQuantity};
     default: return state;
   }
 };
