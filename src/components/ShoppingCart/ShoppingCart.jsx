@@ -20,7 +20,7 @@ const data = {
       total: 100,
     },
     {
-      id: 1,
+      id: 2,
       title: 'Product Title 2',
       image: 'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
       price: 30,
@@ -38,15 +38,19 @@ const tempStyle = {
 };
 
 function ShoppingCart() {
-  const {state} = useCartContext();
-  console.log(state);
+  const {state: {totalPrice, products}, dispatch} = useCartContext();
+
+  function handleClick(event) {
+    const id = event.target.id;
+    console.log('click! ', id);
+    dispatch({type: actions.REMOVE, payload: {id}});
+  };
   return (
     <div style={tempStyle}>
       <h1>Shopping cart</h1>
       <div className='cartContainer'>
         <div className='cartItems-wrapper'>
-          {data.products.map((sinlgeProduct) => {
-            const {id, title, image, price, quantity, total} = sinlgeProduct;
+          {products.map(({id, title, image, price, quantity, total}) => {
             return (
               <div key={id} className='cartItem'>
                 <div className='cartItem-img'>
@@ -60,14 +64,14 @@ function ShoppingCart() {
                 </div>
                 {/* <div className='cartItem-total'>{total}</div> */}
                 <div className='cartItem-remove'>
-                  <button aria-label='remove item from cart'>X</button>
+                  <button aria-label='remove item from cart' id={id} onClick={handleClick}>X</button>
                 </div>
               </div>
             )
           })}
         </div>
         <div className='cartTotal'>
-          <span>Total: {data.total}</span>
+          <span>Total: {totalPrice}</span>
           <button>Checkout</button>
         </div>
       </div>
