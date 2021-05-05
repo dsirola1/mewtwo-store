@@ -52,47 +52,47 @@ export default function MainNav() {
 
   return (
     <div>
-      <AppBar position="static">
+      <AppBar position='static'>
         <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-            <Link exact to="/">
+          <Typography variant='h6' noWrap component='div'>
+            <Link exact to='/'>
               MEWTWO
             </Link>
           </Typography>
 
           <div className={classes.grow} />
           <div className={classes.sectionDesktop}>
-            <IconButton color="inherit">
-              <Link exact to="/">
+            <IconButton color='inherit'>
+              <Link exact to='/'>
                 <FormatListBulletedIcon />
               </Link>
             </IconButton>
 
-            <IconButton color="inherit">
-              <Link to="/checkout">
-                <Badge badgeContent={4} color="secondary">
+            <IconButton color='inherit'>
+              <Link to='/checkout'>
+                <Badge badgeContent={4} color='secondary'>
                   <ShoppingCartIcon />
                 </Badge>
               </Link>
             </IconButton>
 
-            <IconButton color="inherit">
-              <Link exact to="/account">
+            <IconButton color='inherit'>
+              <Link exact to='/account'>
                 <AccountCircle />
               </Link>
             </IconButton>
 
-            <Link exact to="/signout">
+            <Link exact to='/signout'>
               <Signout />
             </Link>
           </div>
           <div className={classes.sectionMobile}>
             <IconButton
-              aria-label="show more"
+              aria-label='show more'
               aria-controls={mobileMenuId}
-              aria-haspopup="true"
+              aria-haspopup='true'
               onClick={handleMobileMenuOpen}
-              color="inherit"
+              color='inherit'
             >
               <MoreIcon />
             </IconButton>
