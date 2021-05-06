@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './ProductList.css';
 import ProductSingle from './ProductListSingle';
+import SearchBar from './SearchBar'
 
 export default function ProductList() {
 	const [list, setList] = useState([]);
@@ -14,31 +15,30 @@ export default function ProductList() {
 		// console.log(data)
 	};
 
-	const product = list.map(({ id, title, image, price, description }) => {
-		// console.log(title)
-		return (
-			<ProductSingle
-				key={id}
-				id={id}
-				title={title}
-				image={image}
-				price={price}
-				description={description}
-			/>
-		);
-	});
-	return (
-		<div className='eachProd'>
-			<div>
-				{/* <label htmlFor="search">Search by Name</label> */}
-				<input
-					className='searchTextBox'
-					type='text'
-					placeholder='Search by Name'
-				></input>
-				<button className='searchButton'>Search</button>
-			</div>
-			<div className='product'>{product}</div>
-		</div>
-	);
+  return (
+    <div className="eachProd">
+      {/* <div>
+        <input
+          className="searchTextBox"
+          type="text"
+          placeholder="Search by Name"
+        ></input>
+        <button className="searchButton">Search</button>
+      </div> */}
+      <SearchBar></SearchBar>
+      {list.map(({ id, title, image, price, description }) => {
+        // console.log(title)
+        return (
+          <ProductSingle
+            key={id}
+            id={id}
+            title={title}
+            image={image}
+            price={price}
+            description={description}
+          />
+        );
+      })}
+    </div>
+  );
 }
