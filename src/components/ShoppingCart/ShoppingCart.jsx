@@ -1,6 +1,8 @@
 import React from 'react';
 
-import {actions, useCartContext} from '../../utils/_useCart';
+import { Link } from 'react-router-dom';
+
+import { actions, useCartContext } from '../../utils/_useCart';
 
 import './ShoppingCart.css';
 
@@ -49,11 +51,14 @@ function ShoppingCart() {
       <h1>Shopping cart</h1>
       <div className='cartContainer'>
         <div className='cartItems-wrapper'>
-          {products.map(({id, title, image, price, quantity, total}) => {
+          {products.length > 0 
+            ? products.map(({id, title, image, price, quantity, total}) => {
             return (
               <div key={id} className='cartItem'>
                 <div className='cartItem-img'>
-                  <img className='cartItemImage' src={image} alt={title} />
+                  <Link to={`/products/${id}`}>
+                    <img className='cartItemImage' src={image} alt={title} />
+                  </Link>
                 </div>
                 <div className='cartItem-info'>
                   <span className='cartItem-title'>{title}</span>
@@ -66,8 +71,7 @@ function ShoppingCart() {
                   <button aria-label='remove item from cart' id={id} onClick={handleClick}>X</button>
                 </div>
               </div>
-            )
-          })}
+            )}) : <div>You don't have any products in your cart. Browse <Link to='/'>here</Link></div>}
         </div>
         <div className='cartTotal'>
           <span>Total: {totalPrice}</span>
