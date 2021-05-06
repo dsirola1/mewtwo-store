@@ -1,6 +1,8 @@
 import React from 'react';
 
-import {actions, useCartContext} from '../../utils/_useCart';
+import { Link } from 'react-router-dom';
+
+import { actions, useCartContext } from '../../utils/_useCart';
 
 import './ShoppingCart.css';
 
@@ -9,27 +11,27 @@ import './ShoppingCart.css';
 // -- updateCart
 // -- type: changeQuantity, removeItem
 
-const data = {
-  products: [
-    {
-      id: 1,
-      title: 'Product Title 1',
-      image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-      price: 50,
-      quantity: 2,
-      total: 100,
-    },
-    {
-      id: 1,
-      title: 'Product Title 2',
-      image: 'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
-      price: 30,
-      quantity: 1,
-      total: 30,
-    },
-  ],
-  total: 130,
-}
+// const data = {
+//   products: [
+//     {
+//       id: 1,
+//       title: 'Product Title 1',
+//       image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+//       price: 50,
+//       quantity: 2,
+//       total: 100,
+//     },
+//     {
+//       id: 2,
+//       title: 'Product Title 2',
+//       image: 'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
+//       price: 30,
+//       quantity: 1,
+//       total: 30,
+//     },
+//   ],
+//   total: 130,
+// }
 
 const tempStyle = {
   margin: '0 auto',
@@ -38,19 +40,25 @@ const tempStyle = {
 };
 
 function ShoppingCart() {
-  const {state} = useCartContext();
-  console.log(state);
+  const {state: {totalPrice, products}, dispatch} = useCartContext();
+
+  function handleClick(event) {
+    const id = event.target.id;
+    dispatch({type: actions.REMOVE, payload: {id}});
+  };
   return (
     <div style={tempStyle}>
       <h1>Shopping cart</h1>
       <div className='cartContainer'>
         <div className='cartItems-wrapper'>
-          {data.products.map((sinlgeProduct) => {
-            const {id, title, image, price, quantity, total} = sinlgeProduct;
+          {products.length > 0 
+            ? products.map(({id, title, image, price, quantity, total}) => {
             return (
               <div key={id} className='cartItem'>
                 <div className='cartItem-img'>
-                  <img className='cartItemImage' src={image} alt={title} />
+                  <Link to={`/products/${id}`}>
+                    <img className='cartItemImage' src={image} alt={title} />
+                  </Link>
                 </div>
                 <div className='cartItem-info'>
                   <span className='cartItem-title'>{title}</span>
@@ -60,14 +68,13 @@ function ShoppingCart() {
                 </div>
                 {/* <div className='cartItem-total'>{total}</div> */}
                 <div className='cartItem-remove'>
-                  <button aria-label='remove item from cart'>X</button>
+                  <button aria-label='remove item from cart' id={id} onClick={handleClick}>X</button>
                 </div>
               </div>
-            )
-          })}
+            )}) : <div>You don't have any products in your cart. Browse <Link to='/'>here</Link></div>}
         </div>
         <div className='cartTotal'>
-          <span>Total: {data.total}</span>
+          <span>Total: {totalPrice}</span>
           <button>Checkout</button>
         </div>
       </div>
