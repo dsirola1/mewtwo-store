@@ -50,7 +50,7 @@ function reducer(state, action) {
         // decrease total price  by price * product qnt
         // decrease total quantity by product qnt
         if(product.id === Number(action.payload.id)) {
-          totalPrice = Number.parseFloat(totalPrice) - Number.parseFloat(product.total);
+          totalPrice = (parseFloat(totalPrice) - parseFloat(product.total)).toFixed(2);
           totalQuantity = totalQuantity - product.quantity;
         } else {
           return product;
@@ -68,7 +68,7 @@ function reducer(state, action) {
           return {
             ...product,
             quantity: product.quantity + 1,
-            total: product.total + Number.parseFloat(action.payload.price),
+            total: (parseFloat(product.total) + parseFloat(action.payload.price)).toFixed(2),
           }
         }
         return product;
@@ -78,12 +78,12 @@ function reducer(state, action) {
         const newProduct = {
           ...action.payload,
           quantity: 1,
-          total: Number.parseFloat(action.payload.price),
+          total: parseFloat(action.payload.price).toFixed(2),
         }
         products.push(newProduct);
       }
       // increase total price and qnt
-      totalPrice = totalPrice + Number.parseFloat(action.payload.price);
+      totalPrice = (parseFloat(totalPrice) + parseFloat(action.payload.price)).toFixed(2);
       totalQuantity = totalQuantity + 1;
       return {products, totalPrice, totalQuantity};
     default: return state;

@@ -9,27 +9,27 @@ import './ShoppingCart.css';
 // -- updateCart
 // -- type: changeQuantity, removeItem
 
-const data = {
-  products: [
-    {
-      id: 1,
-      title: 'Product Title 1',
-      image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-      price: 50,
-      quantity: 2,
-      total: 100,
-    },
-    {
-      id: 2,
-      title: 'Product Title 2',
-      image: 'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
-      price: 30,
-      quantity: 1,
-      total: 30,
-    },
-  ],
-  total: 130,
-}
+// const data = {
+//   products: [
+//     {
+//       id: 1,
+//       title: 'Product Title 1',
+//       image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+//       price: 50,
+//       quantity: 2,
+//       total: 100,
+//     },
+//     {
+//       id: 2,
+//       title: 'Product Title 2',
+//       image: 'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
+//       price: 30,
+//       quantity: 1,
+//       total: 30,
+//     },
+//   ],
+//   total: 130,
+// }
 
 const tempStyle = {
   margin: '0 auto',
@@ -42,7 +42,6 @@ function ShoppingCart() {
 
   function handleClick(event) {
     const id = event.target.id;
-    console.log('click! ', id);
     dispatch({type: actions.REMOVE, payload: {id}});
   };
   return (
