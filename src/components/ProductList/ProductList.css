@@ -46,7 +46,7 @@ input.searchTextBox:focus {
   /* margin-top: .8px; */
   height: 34px;
   border: 1px solid black;
-  border-right: .5px solid black;
+  border-right: 0px solid black;
 }
 
 select.dropdown:focus {
