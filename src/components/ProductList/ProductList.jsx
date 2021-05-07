@@ -57,7 +57,7 @@ export default function ProductList() {
     });
   return (
     <div className='eachProd'>
-      <div>
+      <div className='searchAndCategories'>
         <select
           className='dropdown'
           onChange={(e) => setSearchGroup(e.target.value)}
